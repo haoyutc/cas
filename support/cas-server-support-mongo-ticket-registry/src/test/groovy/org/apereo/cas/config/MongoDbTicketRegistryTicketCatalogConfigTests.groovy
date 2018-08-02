@@ -6,7 +6,10 @@ import org.apereo.cas.ticket.TicketCatalogConfigurer
 import org.junit.experimental.categories.Category
 
 /**
+ * This is {@link MongoDbTicketRegistryTicketCatalogConfigTests}.
+ *
  * @author Dmitriy Kopylenko
+ * @since 5.1.0?
  */
 @Category(MongoDbCategory.class)
 class MongoDbTicketRegistryTicketCatalogConfigTests extends AbstractTicketRegistryTicketCatalogConfigTests {
