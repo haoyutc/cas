@@ -6,7 +6,7 @@ import lombok.val;
 import org.junit.Before;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cloud.autoconfigure.RefreshAutoConfiguration;
-import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.ByteArrayResource;
 
 /**
  * This is {@link JsonResourceSurrogateAuthenticationServiceTests}.
@@ -19,12 +19,14 @@ import org.springframework.core.io.ClassPathResource;
     RefreshAutoConfiguration.class
 })
 public class JsonResourceSurrogateAuthenticationServiceTests extends BaseSurrogateAuthenticationServiceTests {
+    private static String SURROGATES = "{\"casuser\": [\"jsmith\", \"banderson\"],\"adminuser\": [\"jsmith\", \"tomhanks\"]}";
+
     private SurrogateAuthenticationService service;
 
     @Before
     @SneakyThrows
     public void initTests() {
-        val resource = new ClassPathResource("surrogates.json");
+        val resource = new ByteArrayResource(SURROGATES.getBytes());
         service = new JsonResourceSurrogateAuthenticationService(resource, servicesManager);
     }
 }
